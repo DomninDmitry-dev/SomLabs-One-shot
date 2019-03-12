@@ -17,8 +17,9 @@ REMFLAGS = -g -O0
 # исходным кодом не будет явной, соответственно, пошаговая отладка программы 
 # будет не возможна. При включении опции -g, рекомендуется включать и -O0.
 
-obj-m   := $(TARGET_MOD).o 
+obj-m   := $(TARGET_MOD).o md.o
 CFLAGS_$(TARGET_MOD).o := -DDEBUG
+CFLAGS_md.o := -DDEBUG
 
 all:
 	$(MAKE) $(CCFLAGS) $(KDIR) M=$(PWD) ARCH=$(ARCH) CROSS_COMPILE=$(COMPILER) modules
